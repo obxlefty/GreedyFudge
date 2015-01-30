@@ -1,6 +1,11 @@
 ﻿angular.module('games').directive('board', function () {
     return {
         restrict: "E",
-        template: '<h2>Round: <span class="label label-success">0</span></h2><div>question directive</div><div>list of player directives</div>'
+        templateUrl: 'modules/games/views/board.client.view.html'
+    }
+}).directive('player', function () {
+    return {
+        restrict: "E",
+        templateUrl: 'modules/games/views/player.client.view.html'
     }
 })
