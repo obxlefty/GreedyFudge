@@ -6,17 +6,17 @@
 var should = require('should'),
 	mongoose = require('mongoose'),
 	User = mongoose.model('User'),
-	User = mongoose.model('User');
+	Game = mongoose.model('Game');
 
 /**
  * Globals
  */
-var user, user;
+var user, game;
 
 /**
  * Unit tests
  */
-describe('User Model Unit Tests:', function() {
+describe('Game Model Unit Tests:', function() {
 	beforeEach(function(done) {
 		user = new User({
 			firstName: 'Full',
@@ -28,7 +28,7 @@ describe('User Model Unit Tests:', function() {
 		});
 
 		user.save(function() { 
-			user = new User({
+			game = new Game({
 				// Add model fields
 				// ...
 			});
@@ -39,7 +39,7 @@ describe('User Model Unit Tests:', function() {
 
 	describe('Method Save', function() {
 		it('should be able to save without problems', function(done) {
-			return user.save(function(err) {
+			return game.save(function(err) {
 				should.not.exist(err);
 				done();
 			});
@@ -47,7 +47,7 @@ describe('User Model Unit Tests:', function() {
 	});
 
 	afterEach(function(done) { 
-		User.remove().exec();
+		Game.remove().exec();
 		User.remove().exec();
 		
 		done();
