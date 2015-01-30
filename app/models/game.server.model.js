@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 /**
- * Artist Schema
+ * Game Schema
  */
 var GameSchema = new Schema({
 	created: {
@@ -25,8 +25,12 @@ var GameSchema = new Schema({
 	players : [{
 		type : Schema.ObjectId,
 		ref : 'Player'
+	}],
+	turns : [{
+	    type : Schema.ObjectId,
+	    ref : 'Turn'
 	}]
 });
 
 
-mongoose.model('game', GameSchema);
+mongoose.model('Game', GameSchema);

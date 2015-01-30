@@ -24,10 +24,10 @@ var PlayerSchema = new Schema({
 /**
  * Create instance method for authenticating user
  */
-PlayerSchema.methods.givePoints = function( playerID, points ) {
+PlayerSchema.methods.givePoints = function( points ) {
 	this.points += points;
 	
 	return this.points;
 };
 
-mongoose.model('player', PlayerSchema);
+mongoose.model('Player', PlayerSchema);
