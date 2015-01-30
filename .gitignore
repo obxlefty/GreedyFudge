@@ -7,3 +7,10 @@ public/lib
 app/tests/coverage/
 .bower-*/
 .idea/
+.ntvs_analysis.dat
+GreedyFudge.njsproj
+GreedyFudge.sln
+GreedyFudge.v12.suo
+bin/Microsoft.NodejsTools.WebRole.dll
+obj/Debug/GreedyFudge.njsproj.FileListAbsolute.txt
+obj/Debug/GreedyFudge.njsprojResolveAssemblyReference.cache
