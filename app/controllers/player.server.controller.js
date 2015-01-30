@@ -5,44 +5,44 @@
  */
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors.server.controller'),
-	album = mongoose.model('album'),
+	player = mongoose.model('player'),
 	_ = require('lodash');
 
 /**
- * Create an album
+ * Create an player
  */
 exports.create = function(req, res) {
-	var album = new album(req.body);
+	var player = new player(req.body.user);
 
-	album.save(function(err) {
+	player.save(function(err) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(album);
+			res.json(player);
 		}
 	});
 };
 
 /**
- * Show the current game
+ * Show the current player
  */
 exports.read = function(req, res) {
-	res.json(req.album);
+	res.json(req.player);
 };
 
 /**
- * List of albums
+ * List of players
  */
 exports.list = function(req, res) {
-	album.find().sort('-created').exec(function(err, albums) {
+	player.find().sort('-created').exec(function(err, players) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			res.json(albums);
+			res.json(players);
 		}
 	});
 };
@@ -50,11 +50,11 @@ exports.list = function(req, res) {
 /**
  * game middleware
  */
-exports.albumByID = function(req, res, next, id) {
-	album.findById(id).exec(function(err, album) {
+exports.playrByID = function(req, res, next, id) {
+	player.findById(id).exec(function(err, player) {
 		if (err) return next(err);
-		if (!album) return next(new Error('Failed to load album ' + id));
-		req.album = album;
+		if (!player) return next(new Error('Failed to load player ' + id));
+		req.player = player;
 		next();
 	});
 };

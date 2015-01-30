@@ -9,17 +9,17 @@ var mongoose = require('mongoose'),
 /**
  * Player Schema
  */
-var AlbumGuessSchema = new Schema({
+var ArtistGuessSchema = new Schema({
 	player: {
 		type: Schema.ObjectId,
 		ref: 'Player'
 	},
-	album: {
+	artist: {
 		type: String,
 		default: '',
-		required : 'Album guess is required'
+		required : 'Artist guess is required'
 	}
 });
 
 
-mongoose.model('AlbumGuess', AlbumGuessSchema);
+mongoose.model('ArtistGuess', ArtistGuessSchema);
